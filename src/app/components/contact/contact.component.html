@@ -1,0 +1,102 @@
+<div class="breatcome_area d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breatcome_title">
+                    <div class="breatcome_title_inner pb-2">
+                        <h2>Contactez-nous</h2>
+                    </div>
+                    <div class="breatcome_content">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main_contact_area style_three pt-80 pb-90">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="section_title text_left mb-50 mt-3">
+                    <div class="section_sub_title uppercase mb-3">
+                        <h6>Informations</h6>
+                    </div>
+                    <div class="section_main_title">
+                        <h1>Contactez-nous</h1>
+                    </div>
+                    <div class="em_bar">
+                        <div class="em_bar_bg"></div>
+                    </div>
+                </div>
+                <div class="contact_address">
+                    <div class="contact_address_company mb-3">
+                        <ul>
+                            <li><i class="fa fa-address-book"></i><span>Abidjan & Douala</span></li>
+                            <li><i class="fa fa-phone"></i><span>+225 07 00 89 04 78</span></li>
+                            <li><i class="fa fa-phone"></i> <span>+237 699 45 46 24</span></li>
+                            <li><i class="fa fa-envelope"></i> <span>contact@softingenierie.com</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="contact_from">
+                    <div class="contact_from_box">
+                        <div class="contact_title pb-4">
+                            <h3>Envoyer un Message</h3>
+                            <form [formGroup]="contactForm" (ngSubmit)="sendMessage()">
+                                <div class="form-row">
+                                    <div class="col-lg-12 mt-10">
+                                        <label class="form-label t">Nom
+                                            *</label>
+                                        <input type="text" [ngClass]="{'form-control': true,
+                                        'is-invalid': nom?.invalid && nom?.touched}" formControlName="nom"
+                                        [(ngModel)]="mail.nom">
+                                    </div>
+                                    <div class="col-lg-12 mt-10">
+                                        <label class="form-label t">Prenoms
+                                            *</label>
+                                        <input type="text" class="form-control " placeholder=""
+                                            formControlName="prenoms" [ngClass]="{'form-control': true,
+                                        'is-invalid': prenoms?.invalid && prenoms?.touched}"
+                                            [(ngModel)]="mail.prenoms">
+                                    </div>
+                                    <div class="col-lg-12 mt-10">
+                                        <label class="form-label t">Adresse Email *</label>
+                                        <input type="email" [ngClass]="{'form-control': true,
+                                        'is-invalid': email?.invalid && email?.touched}" placeholder=""
+                                            formControlName="email"
+                                            [(ngModel)]="mail.email">
+                                    </div>
+                                    <div class="col-lg-6 mt-10">
+                                        <label class="form-label t">Contact</label><br>
+                                        <input type="tel" [ngClass]="{'form-control': true, 'input': true,
+                                        'is-invalid': contact?.invalid && contact?.touched}"
+                                            placeholder="" formControlName="contact"
+                                            [(ngModel)]="mail.contactuser">
+                                        <br>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form_box mb-30">
+                                            <label class="form-label t">
+                                                Message</label>
+                                            <textarea [ngClass]="{'form-control': true,
+                                            'is-invalid': message?.invalid && message?.touched}"
+                                                placeholder="Saisir le message..." rows="3"
+                                                formControlName="message"
+                                                [(ngModel)]="mail.message"></textarea>
+                                        </div>
+                                        <div class="quote_btn">
+                                            <button class="btn" type="submit" [disabled]="!contactForm.valid">Envoyer</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="status"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

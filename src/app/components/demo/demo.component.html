@@ -1,0 +1,179 @@
+<div class="breatcome_area d-flex align-items-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="breatcome_title">
+                    <div class="breatcome_title_inner pb-2">
+                        <h2>DEMONSTRATION GRATUITE</h2>
+                    </div>
+                    <div class="breatcome_content">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main_contact_area style_three pt-20 pb-90">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6">
+                <div class="section_title text_left mb-50 mt-3">
+                    <div class="section_sub_title uppercase mb-3 d-flex">
+                        <h6>DEMO GRATUITE</h6>
+                        <h6 class="ml-50 mt-1" style="color: #65bc48; font-weight: 900;font-size: 25px;">{{logName}}
+                        </h6>
+                    </div>
+                    <div class="section_main_title">
+                        <h1>{{solutionName}}</h1>
+                    </div>
+                    <div class="em_bar">
+                        <div class="em_bar_bg"></div>
+                    </div>
+                </div>
+                <div class="contact_address">
+                    <div class="contact_address_company mb-3">
+                        <ul>
+                            <li *ngFor="let item of solutionItems; let i = index">
+                                <i class="{{item.icon}}"></i><span>{{item.lib}}</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="contact_from">
+                    <div class="contact_from_box">
+                        <div class="contact_title pb-4">
+                            <h3>Ecrivez-Nous</h3>
+                            <form [formGroup]="demoForm" (ngSubmit)="sendMessage()">
+                                <div class="row">
+                                    <div class="col-lg-5 mt-10">
+                                        <label for="exampleFormControlInput1" class="form-label t">Nom *</label>
+                                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="" formControlName="nom" [(ngModel)]="mail.nom"
+                                            [ngClass]="{'is-invalid': nom?.invalid && nom?.touched}">
+                                    </div>
+                                    <div class="col-lg-7 mt-10">
+                                        <label for="exampleFormControlInput1" class="form-label t">Prenoms *</label>
+                                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="" formControlName="prenoms" [(ngModel)]="mail.prenoms"
+                                            [ngClass]="{'is-invalid': prenoms?.invalid && prenoms?.touched}">
+                                    </div>
+                                    <div class="col-lg-6 mt-10">
+                                        <label for="exampleFormControlInput1" class="form-label t">Adresse Email *</label>
+                                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="" formControlName="email" [(ngModel)]="mail.email"
+                                            [ngClass]="{'is-invalid': email?.invalid && (email?.touched || email?.errors?.['pattern'])}">
+                                    </div>
+                                    <div class="col-lg-6 mt-10">
+                                        <label for="exampleFormControlInput1" class="form-label t">Contact *</label>
+                                        <input type="tel" class="form-control tel" id="user" placeholder=""
+                                            formControlName="contactUser" [(ngModel)]="mail.contactuser"
+                                            [ngClass]="{'is-invalid': contact?.invalid && contact?.touched}">
+                                    </div>
+
+                                    <div class="col-lg-6 mt-10">
+                                        <label for="exampleFormControlInput1" class="form-label t">Nom de L'entreprise
+                                            *</label>
+                                        <input type="email" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="" formControlName="nomEntreprise" [(ngModel)]="mail.nomEntreprise"
+                                            [ngClass]="{'is-invalid': nomEntr?.invalid && nomEntr?.touched}">
+                                    </div>
+                                    <div class="col-lg-6 mt-10">
+                                        <label for="exampleFormControlInput1" class="form-label t">Contact de
+                                            l'Entreprise
+                                            *</label>
+                                        <input type="tel" class="form-control" id="input" placeholder=""
+                                            formControlName="contactEntreprise" [(ngModel)]="mail.contactEntreprise"
+                                            [ngClass]="{'is-invalid': contactEntr?.invalid && contactEntr?.touched}">
+                                    </div>
+                                    <div class="col-lg-7 mt-10">
+                                        <label for="exampleFormControlInput1" class="form-label t">Secteur
+                                            d'activité *</label>
+                                        <select class="form-control form-select-lg" aria-label="Default select example"
+                                            formControlName="secteurActivite" [(ngModel)]="mail.secteurActivite">
+                                            <option selected>Selectionner</option>
+                                            <option value="Agroalimentaire">Agroalimentaire</option>
+                                            <option value=" Bois / Papier / Carton / Imprimerie"> Bois / Papier / Carton / Imprimerie</option>
+                                            <option value=" Chimie / Parachimie"> Chimie / Parachimie</option>
+                                            <option value=" Édition / Communication / Multimédia"> Édition / Communication / Multimédia</option>
+                                            <option value="Études et conseils">Études & conseils</option>
+                                            <option value="Machines et équipements / Automobile">Machines et équipements / Automobile</option>
+                                            <option value="Plastique / Caoutchouc">Plastique / Caoutchouc</option>
+                                            <option value=" Textile / Habillement / Chaussure"> Textile / Habillement / Chaussure</option>
+                                            <option value=" Banque / Assurance"> Banque / Assurance</option>
+                                            <option value="BTP / Matériaux de construction">BTP / Matériaux de construction</option>
+                                            <option value=" Commerce / Négoce / Distribution"> Commerce / Négoce / Distribution</option>
+                                            <option value="Électronique / Électricité">Électronique / Électricité</option>
+                                            <option value=" Industrie pharmaceutique"> Industrie pharmaceutique</option>
+                                            <option value="Informatique / Télécoms">Informatique / Télécoms</option>
+                                            <option value="Métallurgie / Travail du métal">Métallurgie / Travail du métal</option>
+                                            <option value=" Services aux entreprises"> Services aux entreprises</option>
+                                            <option value="Transports / Logistique">Transports / Logistique</option>
+                                            <option value="Autres">Autres</option>
+                                        </select>
+
+                                    </div>
+                                    <div class="col-lg-5 mt-10">
+                                        <label for="exampleFormControlInput1" class="form-label t">Taille de
+                                            l'entreprise
+                                            *</label>
+                                        <select class="form-control form-select-lg" formControlName="tailleEntreprise"
+                                            aria-label="Default select example" [(ngModel)]="mail.tailleEntreprise">
+                                            <option value="0 - 9">0 - 9</option>
+                                            <option value="10 - 24">10 - 24</option>
+                                            <option value="24 - 49">24 - 49</option>
+                                            <option value="50 - 199">50 - 199</option>
+                                            <option value="200 - 499">200 - 499</option>
+                                            <option value="500 - 999">500 - 999</option>
+                                            <option value="1000+">1000+</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-lg-6 mt-10 ">
+                                        <label for="exampleFormControlInput1" class="form-label t">Date de Demonstration
+                                            *</label>
+                                        <input type="text" class="form-control datepicker" id="exampleFormControlInput1"
+                                            placeholder="" formControlName="dateDemo" [(ngModel)]="mail.dateDemoCotation"
+                                            [ngClass]="{'is-invalid': dateDemo?.invalid && dateDemo?.touched}">
+                                    </div>
+                                    <div class="col-lg-6 mt-10 ">
+                                        <label for="exampleFormControlInput1" class="form-label t">Heure *
+                                        </label>
+                                        <input type="time" class="form-control" id="exampleFormControlInput1"
+                                            placeholder="" formControlName="heureDemo" [(ngModel)]="mail.heureDemoCotation"
+                                            [ngClass]="{'is-invalid': heureDemo?.invalid && heureDemo?.touched}">
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form_box mb-30">
+                                            <label for="exampleFormControlTextarea1" class="form-label t">
+                                                Message *</label>
+                                            <textarea class="form-control" id="exampleFormControlTextarea1"
+                                                placeholder="Saisir le message..." rows="3"
+                                                formControlName="message" [(ngModel)]="mail.message"
+                                                [ngClass]="{'is-invalid': message?.invalid && message?.touched}"></textarea>
+                                        </div>
+                                        <div class="quote_btn">
+                                            <button *ngIf="isSubmitted" class="btn btn-primary" type="button" disabled>
+                                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                                envoi...
+                                              </button>
+                                            <button *ngIf="!isSubmitted" class="btn" type="submit" [disabled]="!demoForm.valid">Envoyer</button>
+                                        </div>
+                                        <p class="text text-danger float-right">* <span class="text text-primary">Tous les champs sont requis</span> </p>
+                                    </div>
+                                    <div class="alert alert-success alert-dismissible collapse" role="alert" id="alert">
+                                        <strong>Felicitations</strong> Votre message a été bien envoyé.
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="status"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
