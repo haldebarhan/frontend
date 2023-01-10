@@ -49,14 +49,14 @@
                                 <div class="row">
                                     <div class="col-lg-6 mt-10">
                                         <label for="exampleFormControlInput1" class="form-label t">Nom de L'entreprise
-                                            *</label>
+                                            <span class="text text-danger">*</span></label>
                                         <input type="text" class="form-control" id="exampleFormControlInput1"
                                             placeholder="" formControlName="nomEntreprise" [(ngModel)]="mail.nomEntreprise"
                                             [ngClass]="{'is-invalid': nomEntr?.invalid && nomEntr?.touched}">
                                     </div>
                                     <div class="col-lg-6 mt-10">
                                         <label for="exampleFormControlInput1" class="form-label t">Contact de
-                                            l'entreprise
+                                            l'entreprise <span class="text text-danger">*</span>
                                             <span class="text text-danger">*</span></label>
                                         <input type="tel" class="form-control" id="input" placeholder="" formControlName="contactEntreprise"
                                         [(ngModel)]="mail.contactEntreprise"
@@ -64,7 +64,7 @@
                                     </div>
                                     <div class="col-lg-6 mt-10">
                                         <label for="exampleFormControlInput1" class="form-label t">Secteur
-                                            d'activités</label>
+                                            d'activités <span class="text text-danger">*</span></label>
                                         <select class="form-control form-select-lg" aria-label="Default select example" 
                                         formControlName="secteurActivite" [(ngModel)]="mail.secteurActivite">
                                         <option selected>Selectionner</option>
@@ -92,7 +92,7 @@
                                     <div class="col-lg-6 mt-10">
                                         <label for="exampleFormControlInput1" class="form-label t">Taille de
                                             l'entreprise
-                                            *</label>
+                                            <span class="text text-danger">*</span></label>
                                         <select class="form-control form-select-lg" aria-label="Default select example" 
                                         formControlName="tailleEntreprise" [(ngModel)]="mail.tailleEntreprise">
                                             <option selected>Selectionner</option>
@@ -107,38 +107,38 @@
                                     </div>
                                     <div class="col-lg-6 mt-10 ">
                                         <label for="exampleFormControlInput1" class="form-label t">Date de l'essai
-                                            *</label>
+                                            <span class="text text-danger">*</span></label>
                                         <input type="text" class="form-control datepicker" id="exampleFormControlInput1"
                                             placeholder="" formControlName="dateEssai" [(ngModel)]="mail.dateDemoCotation" 
                                             [ngClass]="{'is-invalid': dateEssai?.invalid && dateEssai?.touched}">
                                     </div>
                                     <div class="col-lg-6 mt-10 ">
-                                        <label for="exampleFormControlInput1" class="form-label t">Heure
+                                        <label for="exampleFormControlInput1" class="form-label t">Heure <span class="text text-danger">*</span>
                                         </label>
                                         <input type="time" class="form-control" id="exampleFormControlInput1"
                                             placeholder="" formControlName="heureEssai" [(ngModel)]="mail.heureDemoCotation"
                                             [ngClass]="{'is-invalid': heureEssai?.invalid && heureEssai?.touched}">
                                     </div>
                                     <div class="col-lg-12 mt-10">
-                                        <label for="exampleFormControlInput1" class="form-label t">Adresse Email</label>
+                                        <label for="exampleFormControlInput1" class="form-label t">Adresse Email <span class="text text-danger">*</span></label>
                                         <input type="email" class="form-control" id="exampleFormControlInput1"
                                             placeholder="" formControlName="email" [(ngModel)]="mail.email"
                                             [ngClass]="{'is-invalid': email?.invalid && (email?.touched || email?.errors?.['pattern'])}">
                                     </div>
                                     <div class="col-lg-5 mt-10">
-                                        <label for="exampleFormControlInput1" class="form-label t">Nom</label>
+                                        <label for="exampleFormControlInput1" class="form-label t">Nom <span class="text text-danger">*</span></label>
                                         <input type="email" class="form-control" id="exampleFormControlInput1"
                                             placeholder="" formControlName="nom" [(ngModel)]="mail.nom"
                                             [ngClass]="{'is-invalid': nom?.invalid && nom?.touched}">
                                     </div>
                                     <div class="col-lg-7 mt-10">
-                                        <label for="exampleFormControlInput1" class="form-label t">Prenoms</label>
+                                        <label for="exampleFormControlInput1" class="form-label t">Prenoms <span class="text text-danger">*</span></label>
                                         <input type="email" class="form-control" id="exampleFormControlInput1"
                                             placeholder="" formControlName="prenoms" [(ngModel)]="mail.prenoms"
                                             [ngClass]="{'is-invalid': prenoms?.invalid && prenoms?.touched}">
                                     </div>
                                     <div class="col-lg-12 mt-10">
-                                        <label for="exampleFormControlInput1" class="form-label t">Contact</label>
+                                        <label for="exampleFormControlInput1" class="form-label t">Contact <span class="text text-danger">*</span></label>
                                         <input type="tel" class="form-control tel" id="exampleFormControlInput1"
                                             placeholder="" formControlName="contactUser" [(ngModel)]="mail.contactuser"
                                             [ngClass]="{'is-invalid': contact?.invalid && contact?.touched}">
@@ -146,7 +146,7 @@
                                     <div class="col-lg-12">
                                         <div class="form_box mb-30">
                                             <label for="exampleFormControlTextarea1" class="form-label t">
-                                                Message</label>
+                                                Message <span class="text text-danger">*</span></label>
                                             <textarea class="form-control" id="exampleFormControlTextarea1"
                                                 placeholder="Saisir le message..." rows="3"
                                                 formControlName="message" [(ngModel)]="mail.message"
