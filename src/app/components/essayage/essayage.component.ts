@@ -49,8 +49,10 @@ export class EssayageComponent implements OnInit{
     })
   }
   sendMessage() {
+    this.isSubmitted = true
     this.mailer.sendMailByClient({...this.mail, code: this.code ? this.code : '+225', objet: `Essai Gratuit`}).subscribe(res => {
       jQuery('#alert').show('fade')
+      this.isSubmitted = false
     })
     
   }
@@ -88,12 +90,12 @@ export class EssayageComponent implements OnInit{
       { id: 10, item: 'Projet Architecture, BET' },
       { id: 11, item: 'Suivi Chantier Architecte' },
       { id: 12, item: 'Suivi Chantier Entrepreneur' },
-      { id: 13, item: 'Etude et Développement' },
-      { id: 14, item: 'Business Intelligence (BI)' },
-      { id: 15, item: 'Paiement électronique' },
-      { id: 16, item: 'Intégration BIOMETRIE' },
-      { id: 17, item: 'Monétique et Carte à puce' },
-      { id: 18, item: 'Formation et Conseils' },
+      // { id: 13, item: 'Etude et Développement' },
+      // { id: 14, item: 'Business Intelligence (BI)' },
+      // { id: 15, item: 'Paiement électronique' },
+      // { id: 16, item: 'Intégration BIOMETRIE' },
+      // { id: 17, item: 'Monétique et Carte à puce' },
+      // { id: 18, item: 'Formation et Conseils' },
       { id: 19, item: 'Autres' },
     ]
   }

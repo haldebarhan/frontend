@@ -48,27 +48,27 @@
                                 <div class="row">
                                     <div class="col-lg-5 mt-10">
                                         <label class="form-label t">Nom
-                                            *</label>
+                                            <span class="text text-danger">*</span></label>
                                         <input type="text" class="form-control"
                                             [ngClass]="{'is-invalid': nom?.invalid && nom?.touched}" placeholder=""
                                             formControlName="nom" [(ngModel)]="mail.nom">
                                     </div>
                                     <div class="col-lg-7 mt-10">
                                         <label class="form-label t">Prenoms
-                                            *</label>
+                                            <span class="text text-danger">*</span></label>
                                         <input type="email" class="form-control " placeholder=""
                                             formControlName="prenoms"
                                             [ngClass]="{'is-invalid': prenoms?.invalid && prenoms?.touched}"
                                             [(ngModel)]="mail.prenoms">
                                     </div>
                                     <div class="col-lg-12 mt-10">
-                                        <label class="form-label t">Adresse Email *</label>
+                                        <label class="form-label t">Adresse Email   <span class="text text-danger">*</span></label>
                                         <input type="email" class="form-control" placeholder="" formControlName="email"
                                             [ngClass]="{'is-invalid': email?.invalid && (email?.touched || email?.errors?.['pattern'])}"
                                             [(ngModel)]="mail.email">
                                     </div>
                                     <div class="col-lg-12 mt-10">
-                                        <label class="form-label t">Service Concerné </label>
+                                        <label class="form-label t">Produits Concerné </label>
                                         <select class="form-control form-select-lg select2" multiple="multiple"
                                             formControlName="service" [ngModel]="serviceSelected">
                                             <option *ngFor="let service of serviceList" value="{{service.item}}">
@@ -76,7 +76,7 @@
                                         </select>
                                     </div>
                                     <div class="col-lg-12 mt-10">
-                                        <label class="form-label t">Contact *</label><br>
+                                        <label class="form-label t">Contact   <span class="text text-danger">*</span></label><br>
                                         <input type="tel" class="form-control tel" placeholder=""
                                             formControlName="contactUser" [ngClass]="{'is-invalid': contact?.invalid && (contact?.touched || contact?.errors?.['pattern']
                                         || contact?.errors?.['minlength'] || contact?.errors?.['maxlength'])}"
@@ -85,7 +85,7 @@
                                     <div class="col-lg-12">
                                         <div class="form_box mb-30">
                                             <label class="form-label t">
-                                                Message *</label>
+                                                Message   <span class="text text-danger">*</span></label>
                                             <textarea class="form-control" placeholder="Saisir le message..." rows="3"
                                                 formControlName="message"
                                                 [ngClass]="{'is-invalid': message?.invalid && message?.touched}"
@@ -100,9 +100,9 @@
                                                 [disabled]="!demoForm.valid">Envoyer</button>
                                         </div>
                                         <p class="text text-danger float-right">* <span class="text text-primary">
-                                                Tes champs sont requis</span> </p>
+                                                 Champs requis</span> </p>
                                     </div>
-                                    <div class="alert alert-success alert-dismissible collapse" role="alert" id="alert">
+                                    <div class="alert alert-success alert-dismissible collapse mt-20" role="alert" id="alert">
                                         <strong>Felicitations</strong> Votre message a été bien envoyé.
                                         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                                             <span aria-hidden="true">&times;</span>

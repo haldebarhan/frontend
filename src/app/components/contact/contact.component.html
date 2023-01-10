@@ -48,28 +48,28 @@
                                 <div class="form-row">
                                     <div class="col-lg-12 mt-10">
                                         <label class="form-label t">Nom
-                                            *</label>
+                                            <span class="text text-danger">*</span></label>
                                         <input type="text" [ngClass]="{'form-control': true,
                                         'is-invalid': nom?.invalid && nom?.touched}" formControlName="nom"
                                         [(ngModel)]="mail.nom">
                                     </div>
                                     <div class="col-lg-12 mt-10">
                                         <label class="form-label t">Prenoms
-                                            *</label>
+                                            <span class="text text-danger">*</span></label>
                                         <input type="text" class="form-control " placeholder=""
                                             formControlName="prenoms" [ngClass]="{'form-control': true,
                                         'is-invalid': prenoms?.invalid && prenoms?.touched}"
                                             [(ngModel)]="mail.prenoms">
                                     </div>
                                     <div class="col-lg-12 mt-10">
-                                        <label class="form-label t">Adresse Email *</label>
+                                        <label class="form-label t">Adresse Email <span class="text text-danger">*</span></label>
                                         <input type="email" [ngClass]="{'form-control': true,
                                         'is-invalid': email?.invalid && email?.touched}" placeholder=""
                                             formControlName="email"
                                             [(ngModel)]="mail.email">
                                     </div>
                                     <div class="col-lg-6 mt-10">
-                                        <label class="form-label t">Contact</label><br>
+                                        <label class="form-label t">Contact <span class="text text-danger">*</span></label><br>
                                         <input type="tel" [ngClass]="{'form-control': true, 'input': true,
                                         'is-invalid': contact?.invalid && contact?.touched}"
                                             placeholder="" formControlName="contact"
@@ -79,7 +79,7 @@
                                     <div class="col-lg-12">
                                         <div class="form_box mb-30">
                                             <label class="form-label t">
-                                                Message</label>
+                                                Message <span class="text text-danger">*</span></label>
                                             <textarea [ngClass]="{'form-control': true,
                                             'is-invalid': message?.invalid && message?.touched}"
                                                 placeholder="Saisir le message..." rows="3"
@@ -87,9 +87,20 @@
                                                 [(ngModel)]="mail.message"></textarea>
                                         </div>
                                         <div class="quote_btn">
-                                            <button class="btn" type="submit" [disabled]="!contactForm.valid">Envoyer</button>
+                                            <button *ngIf="isSubmitted" class="btn btn-primary" type="button" disabled>
+                                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                                envoi...
+                                              </button>
+                                            <button *ngIf="!isSubmitted" class="btn" type="submit" [disabled]="!contactForm.valid">Envoyer</button>
                                         </div>
+                                        <p class="text text-danger float-right">* <span class="text text-primary">Champs requis</span> </p>
                                     </div>
+                                    <div class="alert alert-success alert-dismissible collapse mt-20" role="alert" id="alert">
+                                        <strong>Felicitations</strong> Votre message a été bien envoyé.
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                          <span aria-hidden="true">&times;</span>
+                                        </button>
+                                      </div>
                                 </div>
                             </form>
                         </div>

@@ -5,6 +5,7 @@ import { Injectable } from "@angular/core";
     providedIn: 'root'
 })
 export class Mailer {
+    // API_URL = 'http://localhost:3000/mail'
     API_URL = 'https://softserver-haldebarhan.onrender.com/mail'
     constructor(private http: HttpClient) { }
 

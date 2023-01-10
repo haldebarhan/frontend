@@ -12,7 +12,7 @@ declare var jQuery: any;
   templateUrl: './demo.component.html',
   styleUrls: ['./demo.component.css']
 })
-export class DemoComponent implements OnInit{
+export class DemoComponent implements OnInit {
   code = ""
   id: number = 0;
   solutions: any[] = []
@@ -34,7 +34,7 @@ export class DemoComponent implements OnInit{
     heureDemoCotation: ''
   }
   isSubmitted: boolean = false
-  constructor(private route: ActivatedRoute, private solutionservice: SolutionService, private mailer: Mailer) {}
+  constructor(private route: ActivatedRoute, private solutionservice: SolutionService, private mailer: Mailer) { }
 
   demoForm = new FormGroup({
     nomEntreprise: new FormControl(''),
@@ -59,14 +59,14 @@ export class DemoComponent implements OnInit{
     this.logName = this.solutions[this.id - 1].logiciel
     this.solutionItems = this.solutions[this.id - 1].items
     jQuery(document).ready(() => {
-     jQuery('.datepicker').datepicker({
+      jQuery('.datepicker').datepicker({
         format: 'dd/mm/yyyy',
         language: 'fr',
         autoclose: true,
         startDate: new Date(),
         todayHighlight: true,
         enableOnReadonly: true,
-      }).on('changeDate', (dateText: any, inst: any)=> {
+      }).on('changeDate', (dateText: any, inst: any) => {
         this.mail.dateDemoCotation = formatDate(dateText.date)
       })
       var input = document.querySelector("#input");
@@ -75,7 +75,7 @@ export class DemoComponent implements OnInit{
         separateDialCode: true,
         initialCountry: 'ci'
       })
- 
+
 
       input?.addEventListener("countrychange", () => {
         this.code = jQuery('.iti__selected-dial-code').text()
@@ -83,37 +83,39 @@ export class DemoComponent implements OnInit{
     })
   }
 
-  get nom(){
+  get nom() {
     return this.demoForm.get('nom')
   }
-  get prenoms(){
+  get prenoms() {
     return this.demoForm.get('prenoms')
   }
-  get email(){
+  get email() {
     return this.demoForm.get('email')
   }
-  get contact(){
+  get contact() {
     return this.demoForm.get('contactUser')
   }
-  get message(){
+  get message() {
     return this.demoForm.get('message')
   }
 
-  get contactEntr(){
+  get contactEntr() {
     return this.demoForm.get('contactEntreprise')
   }
-  get nomEntr(){
+  get nomEntr() {
     return this.demoForm.get('nomEntreprise')
   }
-  get dateDemo(){
+  get dateDemo() {
     return this.demoForm.get('dateDemo')
   }
-  get heureDemo(){
+  get heureDemo() {
     return this.demoForm.get('heureDemo')
   }
-  sendMessage(){
-    this.mailer.sendMailByClient({...this.mail, code: this.code ? this.code : '+225', objet: `Demo Gratuite ${this.solutionName}`}).subscribe(res => {
+  sendMessage() {
+    this.isSubmitted = true
+    this.mailer.sendMailByClient({ ...this.mail, code: this.code ? this.code : '+225', objet: `Demo Gratuite ${this.solutionName}` }).subscribe(res => {
       jQuery('#alert').show('fade')
+      this.isSubmitted = false
     })
   }
 }

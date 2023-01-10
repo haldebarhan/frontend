@@ -112,8 +112,10 @@ export class EssaiComponent implements OnInit {
     return this.essaiForm.get('heureEssai')
   }
   sendMessage(){
+    this.isSubmitted = true
     this.mailer.sendMailByClient({...this.mail, code: this.code ? this.code : '+225', objet: `Essai Gratuit ${this.solutionName}`}).subscribe(res => {
       jQuery('#alert').show('fade')
+      this.isSubmitted = false
     })
   }
 }

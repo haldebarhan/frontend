@@ -12,7 +12,7 @@ declare var jQuery: any
 export class ContactComponent implements OnInit{
 
   code: any
-
+  isSubmitted: boolean = false
   constructor(private mailer: Mailer) { }
   contactForm = new FormGroup({
     nom: new FormControl('', [Validators.required]),
@@ -29,10 +29,11 @@ export class ContactComponent implements OnInit{
     email: ''
   }
   sendMessage() {
-    console.log(this.mail);
-    
-    // this.mailer.sendMail(this.contactForm)
-    
+    this.isSubmitted = true
+    this.mailer.sendMailByClient({...this.mail, code: this.code ? this.code : '+225', objet: "Demande d'information"}).subscribe(res => {
+      jQuery('#alert').show('fade')
+      this.isSubmitted = false
+    })    
   }
 
 
