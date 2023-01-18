@@ -47,6 +47,12 @@ export class EssayageComponent implements OnInit{
         this.mail.service?.push(data.text)
       })
     })
+
+      jQuery(document).ready(()=> {
+        jQuery("html, body").animate({
+          scrollTop: 0
+        }, 0.1)
+      })
   }
   sendMessage() {
     this.isSubmitted = true

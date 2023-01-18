@@ -39,6 +39,11 @@ export class DemonstrationComponent implements OnInit{
         this.mail.service?.push(data.text)
       })
     })
+    jQuery(document).ready(()=> {
+      jQuery("html, body").animate({
+        scrollTop: 0
+      }, 0.1)
+    })
   }
   constructor(private mailer: Mailer) { }
   demoForm = new FormGroup({

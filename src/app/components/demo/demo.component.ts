@@ -81,6 +81,11 @@ export class DemoComponent implements OnInit {
         this.code = jQuery('.iti__selected-dial-code').text()
       })
     })
+    jQuery(document).ready(()=> {
+      jQuery("html, body").animate({
+        scrollTop: 0
+      }, 0.1)
+    })
   }
 
   get nom() {

@@ -9,7 +9,7 @@ declare var jQuery: any
   templateUrl: './contact.component.html',
   styleUrls: ['./contact.component.css']
 })
-export class ContactComponent implements OnInit{
+export class ContactComponent implements OnInit {
 
   code: any
   isSubmitted: boolean = false
@@ -30,10 +30,10 @@ export class ContactComponent implements OnInit{
   }
   sendMessage() {
     this.isSubmitted = true
-    this.mailer.sendMailByClient({...this.mail, code: this.code ? this.code : '+225', objet: "Demande d'information"}).subscribe(res => {
+    this.mailer.sendMailByClient({ ...this.mail, code: this.code ? this.code : '+225', objet: "Demande d'information" }).subscribe(res => {
       jQuery('#alert').show('fade')
       this.isSubmitted = false
-    })    
+    })
   }
 
 
@@ -54,17 +54,22 @@ export class ContactComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    jQuery(document).ready(()=>{
+    jQuery(document).ready(() => {
       var input = document.querySelector(".input");
       (<any>window).intlTelInput(input, {
-          separateDialCode: true,
-          initialCountry: 'ci'
-        })
-        input?.addEventListener("countrychange", ()=> {
-          this.code=  jQuery('.iti__selected-dial-code').text()
-         })
+        separateDialCode: true,
+        initialCountry: 'ci'
+      })
+      input?.addEventListener("countrychange", () => {
+        this.code = jQuery('.iti__selected-dial-code').text()
+      })
+
+      jQuery("html, body").animate({
+        scrollTop: 0
+      }, 0.1)
+
     })
-    
+
   }
 
 }

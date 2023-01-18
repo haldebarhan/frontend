@@ -9,7 +9,7 @@ declare var jQuery: any
   templateUrl: './cotation.component.html',
   styleUrls: ['./cotation.component.css']
 })
-export class CotationComponent implements OnInit{
+export class CotationComponent implements OnInit {
   mail: Mail = {
     nomEntreprise: '',
     contactEntreprise: '',
@@ -44,7 +44,13 @@ export class CotationComponent implements OnInit{
       input?.addEventListener("countrychange", () => {
         this.code = jQuery('.iti__selected-dial-code').text()
       })
+
+      jQuery("html, body").animate({
+        scrollTop: 0
+      }, 0.1)
+
     })
+
   }
 
   getData(): Array<any> {

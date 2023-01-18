@@ -61,6 +61,9 @@ export class EssaiComponent implements OnInit {
     this.logName = this.solutions[this.id - 1].logiciel
     this.solutionItems = this.solutions[this.id - 1].items
     jQuery(document).ready(() => {
+      jQuery("html, body").animate({
+        scrollTop: 0
+      }, 0.1)
       jQuery('.datepicker').datepicker({
         format: 'dd/mm/yyyy',
         language: 'fr',
